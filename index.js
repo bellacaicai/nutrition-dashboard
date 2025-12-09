@@ -1,5 +1,5 @@
 // 把这里的文件名改成你仓库里那个 js 文件，比如 e587dfc79d028a3f@101.js
-import define from "e587dfc79d028a3f@134.js";
+import define from "./e587dfc79d028a3f@134.js";
 import {Runtime, Inspector} from "@observablehq/runtime";
 
 const runtime = new Runtime();
