@@ -67,6 +67,27 @@
         font-size: 12px;
         color: #888;
       }
+      /* Filters 容器：一行多列、自适应换行 */
+      #filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px 16px;    /* 竖向 12px，横向 16px 间距 */
+      align-items: flex-end;
+      margin-top: 4px;
+    }
+
+    /* 每个单独的 filter item */
+    #filters .filter-item {
+      padding: 4px 6px;
+    }
+
+    /* 让控件 label 和 input 排版更紧凑一点（Inputs 默认生成 label） */
+    #filters .filter-item label {
+      font-size: 13px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 4px;
+    }
     </style>
   </head>
 
