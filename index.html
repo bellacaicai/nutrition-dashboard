@@ -61,47 +61,56 @@
       }
 
       .page-footer {  /* Filters 区：整体排成两列 —— 左 label / 右控件 */
+  /* Filters 面板整体垂直排列每个条件块 */
   #filters {
-    display: grid;
-    grid-template-columns: 180px minmax(0, 1fr);
-    row-gap: 12px;
-    column-gap: 16px;
-    align-items: center;
-    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
   }
 
-  /* 每个 filter-item，对应一句 label + 一个控件 */
+  /* 每一个 filter-item = 一行（Search / Categories / Slider / Toggle） */
   #filters .filter-item {
-    display: contents; /* 让内部元素参与 grid 布局 */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
-  /* Inputs 自动带的 label 作为左侧标签 */
+  /* 默认 label 样式 */
   #filters .filter-item label {
     font-size: 13px;
     color: var(--muted);
     font-weight: 500;
   }
 
-  /* 右侧 input / 控件 */
+  /* Search input 占满宽度 */
   #filters .filter-item input[type="text"],
-  #filters .filter-item input[type="number"],
-  #filters .filter-item input[type="range"] {
-    width: 100%;
+  #filters .filter-item input[type="number"] {
+    max-width: 260px;
   }
 
-  /* Categories 的 checkbox 列表布成多列 */
+  /* Categories 这一块：多列复选框 */
+  /* 这是第二个 filter-item（Filter categories）内部结构 */
   #filters .filter-item:nth-child(2) > div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 4px 12px;
   }
 
-  /* “Only show …” 的 toggle 让它对齐一点 */
+  /* Slider 那一块：让 slider 和数字在一行 */
+  #filters .filter-item:nth-child(3) > div {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Healthy toggle 那一块：label + checkbox 并排 */
   #filters .filter-item:nth-child(4) > div {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
+
 
         border-top: 1px solid #e0e0e0;
         background: #fafafa;
