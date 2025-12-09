@@ -15,11 +15,32 @@ function appendToFilters() {
 
 runtime.module(define, name => {
   // 四个过滤控件：按顺序放进 Filters panel
-  if (name === "viewof searchFood"
-    || name === "viewof filterCategories"
-    || name === "viewof maxCalories"
-    || name === "viewof healthyOnly") {
-    return appendToFilters();
+// ----- Filters with custom wrapper classes -----
+
+    if (name === "viewof searchFood") {
+      const wrapper = appendToFilters();
+      wrapper._node.classList.add("filter-search");
+      return wrapper;
+    }
+
+    if (name === "viewof filterCategories") {
+      const wrapper = appendToFilters();
+      wrapper._node.classList.add("filter-categories");
+      return wrapper;
+    }
+
+    if (name === "viewof maxCalories") {
+      const wrapper = appendToFilters();
+      wrapper._node.classList.add("filter-maxcal");
+      return wrapper;
+    }
+
+    if (name === "viewof healthyOnly") {
+      const wrapper = appendToFilters();
+      wrapper._node.classList.add("filter-healthy");
+      return wrapper;
+    }
+
   }
 
   // Treemap 视图
