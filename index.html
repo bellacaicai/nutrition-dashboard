@@ -59,7 +59,49 @@
         margin-bottom: 20px;
       }
 
-      .page-footer {
+      .page-footer {  /* Filters 区：整体排成两列 —— 左 label / 右控件 */
+  #filters {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    row-gap: 12px;
+    column-gap: 16px;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  /* 每个 filter-item，对应一句 label + 一个控件 */
+  #filters .filter-item {
+    display: contents; /* 让内部元素参与 grid 布局 */
+  }
+
+  /* Inputs 自动带的 label 作为左侧标签 */
+  #filters .filter-item label {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* 右侧 input / 控件 */
+  #filters .filter-item input[type="text"],
+  #filters .filter-item input[type="number"],
+  #filters .filter-item input[type="range"] {
+    width: 100%;
+  }
+
+  /* Categories 的 checkbox 列表布成多列 */
+  #filters .filter-item:nth-child(2) > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 4px 12px;
+  }
+
+  /* “Only show …” 的 toggle 让它对齐一点 */
+  #filters .filter-item:nth-child(4) > div {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
         border-top: 1px solid #e0e0e0;
         background: #fafafa;
         padding: 6px 12px 10px;
