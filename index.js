@@ -1,11 +1,10 @@
-// 正确的 index.js —— 可直接替换
 
 import define from "./e587dfc79d028a3f@134.js";
 import { Runtime, Inspector } from "./runtime.js";
 
 const runtime = new Runtime();
 
-// 小工具：把 Observable 的控件塞到 Filters 区域
+
 function appendToFilters(className) {
   const filtersDiv = document.querySelector("#filters");
   const wrapper = document.createElement("div");
@@ -49,6 +48,6 @@ runtime.module(define, name => {
     return new Inspector(document.querySelector("#bars"));
   }
 
-  // 其余 cell 不渲染，只执行数据
+
   return null;
 });
